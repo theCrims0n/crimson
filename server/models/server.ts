@@ -22,7 +22,7 @@ class Server {
         this.port = process.env.PORT || '3001'
         this.connection = process.env.MONGO_URL_CLOUD || 'mongodb+srv://crimson:xQq8avFit8te3zFE@crimson.56k6s.mongodb.net/crimson'
         this.server = createServer(this.app)
-        this.io = new ServerSocket(this.server, { cors: { origin: 'http://localhost:3000' }, connectionStateRecovery: {} })
+        this.io = new ServerSocket(this.server, { cors: { origin: 'https://crimson-01b3.onrender.com' }, connectionStateRecovery: {} })
         this.dbConnection();
         this.middlewares();
         this.routes();
@@ -41,7 +41,7 @@ class Server {
         this.app.use(express.json())
         this.app.use(cors({
             credentials: true,
-            origin: 'http://localhost:3000',
+            origin: 'https://crimson-01b3.onrender.com',
             methods: ['GET', 'POST', 'PUT', 'DELETE']
         }))
         this.app.use(express.urlencoded({ extended: true }))
