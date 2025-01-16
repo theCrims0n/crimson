@@ -43,7 +43,7 @@ export const verifyToken = async (req: Request, res: Response) => {
     try {
         const { token } = req.cookies
         if (!token) {
-            res.clearCookie('token')
+            res.clearCookie('token').redirect('/auth/login')
             res.status(400).json({ mssge: 'Invalid or expired token' })
             return
         }
@@ -70,7 +70,7 @@ export const verifyToken = async (req: Request, res: Response) => {
     }
     catch (error) {
         console.log(error)
-        res.clearCookie('token')
+        res.clearCookie('token').redirect('/auth/login')
         res.status(400).json({ mssge: 'Token unauthorized' })
         return
     }
