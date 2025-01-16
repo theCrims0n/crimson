@@ -31,7 +31,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const logout = async (req: Request, res: Response) => {
     try {
-        res.clearCookie('token').status(200).json({ mssge: 'Sucessfully logged out' })
+        res.clearCookie('token').status(200).json({ mssge: 'Sucessfully logged out' }).redirect('/auth/login')
 
     } catch (error) {
         res.status(500).json({ mssge: error })
