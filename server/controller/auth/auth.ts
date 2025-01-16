@@ -31,7 +31,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const logout = async (req: Request, res: Response) => {
     try {
-        res.clearCookie('token').status(200).redirect('/auth/login')
+        res.clearCookie('token', { sameSite: "none", secure: true, }).status(200).redirect('/auth/login')
 
     } catch (error) {
         res.status(500).json({ mssge: error })
@@ -43,7 +43,7 @@ export const verifyToken = async (req: Request, res: Response) => {
     try {
         const { token } = req.cookies
         if (!token) {
-            res.clearCookie('token').redirect('/auth/login')
+            res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login')
             return
         }
         try {
@@ -53,7 +53,7 @@ export const verifyToken = async (req: Request, res: Response) => {
                 const user = await Users.findById({ _id })
 
                 if (!user) {
-                    res.clearCookie('token').redirect('/auth/login')
+                    res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login')
                     return
                 }
                 res.json({ user })
@@ -61,14 +61,14 @@ export const verifyToken = async (req: Request, res: Response) => {
             }
 
         } catch (error) {
-            res.clearCookie('token')
+            res.clearCookie('token', { sameSite: "none", secure: true, })
             res.status(400).send('Invalid token!');
             return
         }
     }
     catch (error) {
         console.log(error)
-        res.clearCookie('token').redirect('/auth/login')
+        res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login')
         return
     }
 }
