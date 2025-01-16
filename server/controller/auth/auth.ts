@@ -31,8 +31,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const logout = async (req: Request, res: Response) => {
     try {
-        res.clearCookie('token').status(200).json({ mssge: 'Sucessfully logged out' }).redirect('/auth/login')
-
+        res.clearCookie('token').status(200).redirect('/auth/login')
     } catch (error) {
         res.status(500).json({ mssge: error })
 
@@ -43,8 +42,8 @@ export const verifyToken = async (req: Request, res: Response) => {
     try {
         const { token } = req.cookies
         if (!token) {
-            res.clearCookie('token').redirect('/auth/login')
             res.status(400).json({ mssge: 'Invalid or expired token' })
+            res.clearCookie('token').redirect('/auth/login')
             return
         }
         try {
@@ -54,8 +53,8 @@ export const verifyToken = async (req: Request, res: Response) => {
                 const user = await Users.findById({ _id })
 
                 if (!user) {
-                    res.clearCookie('token')
                     res.status(400).json({ mssge: 'Unauthorized' })
+                    res.clearCookie('token').redirect('/auth/login')
                     return
                 }
                 res.json({ user })
@@ -63,15 +62,15 @@ export const verifyToken = async (req: Request, res: Response) => {
             }
 
         } catch (error) {
-            res.clearCookie('token')
             res.status(400).send('Invalid token!');
+            res.clearCookie('token').redirect('/auth/login')
             return
         }
     }
     catch (error) {
         console.log(error)
-        res.clearCookie('token').redirect('/auth/login')
         res.status(400).json({ mssge: 'Token unauthorized' })
+        res.clearCookie('token').redirect('/auth/login')
         return
     }
 }
