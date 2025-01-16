@@ -14,7 +14,7 @@ export const login = async (req: Request, res: Response) => {
         }
         const { _id } = user
         const token: any = await createJWT(_id, email, password)
-        
+
         res.cookie("token", token, {
             sameSite: 'none',
             httpOnly: true,
@@ -32,6 +32,7 @@ export const login = async (req: Request, res: Response) => {
 export const logout = async (req: Request, res: Response) => {
     try {
         res.clearCookie('token').status(200).redirect('/auth/login')
+
     } catch (error) {
         res.status(500).json({ mssge: error })
 
@@ -42,7 +43,6 @@ export const verifyToken = async (req: Request, res: Response) => {
     try {
         const { token } = req.cookies
         if (!token) {
-            res.status(400).json({ mssge: 'Invalid or expired token' })
             res.clearCookie('token').redirect('/auth/login')
             return
         }
@@ -53,7 +53,6 @@ export const verifyToken = async (req: Request, res: Response) => {
                 const user = await Users.findById({ _id })
 
                 if (!user) {
-                    res.status(400).json({ mssge: 'Unauthorized' })
                     res.clearCookie('token').redirect('/auth/login')
                     return
                 }
@@ -62,14 +61,13 @@ export const verifyToken = async (req: Request, res: Response) => {
             }
 
         } catch (error) {
+            res.clearCookie('token')
             res.status(400).send('Invalid token!');
-            res.clearCookie('token').redirect('/auth/login')
             return
         }
     }
     catch (error) {
         console.log(error)
-        res.status(400).json({ mssge: 'Token unauthorized' })
         res.clearCookie('token').redirect('/auth/login')
         return
     }
