@@ -35,7 +35,7 @@ export const Chat2 = () => {
     }, [userList, chatList])
 
     return (
-        <div className="flex flex-col h-full w-full pt-4 pl-4 pr-4 pb-4">
+        <div className="flex flex-col fade-in h-full w-full pt-4 pl-4 pr-4 pb-4">
             <div className="relative flex flex-row justify-center items-center w-full h-full">
                 <div className="flex justify-center h-full w-full absolute">
                     <div className="flex flex-row w-[1400px] relative overflow-auto" >
