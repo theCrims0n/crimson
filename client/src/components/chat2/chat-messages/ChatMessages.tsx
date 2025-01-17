@@ -24,8 +24,8 @@ export const ChatMessage = ({ messages, message }: Props) => {
         const htmlString =
             `            
               <div class='flex flex-col justify-center content-fit m-1 ${user._id == user_id ? 'items-end' : 'items-start'}'>
-                 <div class='flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-800 bg-opacity-75 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden ${user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none'} '>
-                      <p class=" text-zinc-100 text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">${chat}</p>
+                 <div class='flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 bg-opacity-95 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden ${user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none'} '>
+                      <p class=" text-white text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">${chat}</p>
                        <div class="flex justify-end items-center">
                           <div class='flex h-[4px] pb-1 pr-1'>
                             <p class="text-zinc-300 text-[9px] w-full" >${new Date(Date.now()).toLocaleString('en-US', { hour12: true, hour: 'numeric', minute: '2-digit' })}</p>
@@ -58,8 +58,8 @@ export const ChatMessage = ({ messages, message }: Props) => {
                     const { message, user_id, date } = data
                     return (
                         <div key={index} className={cn('flex flex-col justify-center content-fit m-1 ', user._id == user_id ? 'items-end' : 'items-start')}>
-                            <div className={cn('flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-800 bg-opacity-75 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden', user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none')}>
-                                <p className=" text-zinc-100 text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">{message}</p>
+                            <div className={cn('flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 bg-opacity-95 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden', user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none')}>
+                                <p className=" text-white text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">{message}</p>
                                 <div className="flex justify-end items-center">
                                     <div className='flex h-[4px] pb-1 pr-1'>
                                         <p className="text-zinc-300 text-[9px] w-full" >{new Date(date).toLocaleString('en-US', { hour12: true, hour: 'numeric', minute: '2-digit' })}</p>
