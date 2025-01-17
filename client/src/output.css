@@ -542,6 +542,14 @@ video {
   margin: 0.5rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
+.m-0 {
+  margin: 0px;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -619,6 +627,14 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .block {
@@ -707,6 +723,10 @@ video {
 
 .max-h-16 {
   max-height: 4rem;
+}
+
+.max-h-screen {
+  max-height: 100vh;
 }
 
 .min-h-10 {
@@ -813,6 +833,18 @@ video {
   width: 100vw;
 }
 
+.w-80 {
+  width: 20rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[1200px\] {
+  width: 1200px;
+}
+
 .min-w-40 {
   min-width: 10rem;
 }
@@ -849,6 +881,10 @@ video {
   min-width: 100%;
 }
 
+.min-w-80 {
+  min-width: 20rem;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -867,6 +903,30 @@ video {
 
 .max-w-\[60\%\] {
   max-width: 60%;
+}
+
+.max-w-80 {
+  max-width: 20rem;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+
+.max-w-\[450px\] {
+  max-width: 450px;
+}
+
+.max-w-\[20svh\] {
+  max-width: 20svh;
+}
+
+.max-w-\[40svh\] {
+  max-width: 40svh;
+}
+
+.max-w-\[400px\] {
+  max-width: 400px;
 }
 
 .flex-grow {
@@ -1023,12 +1083,28 @@ video {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-12 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(3rem * var(--tw-space-x-reverse));
+  margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .overflow-auto {
   overflow: auto;
 }
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .break-words {
@@ -1253,6 +1329,10 @@ video {
   padding: 0.75rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1353,6 +1433,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
 }
 
 .text-center {
@@ -2088,6 +2172,10 @@ p {
 }
 
 @media (min-width: 640px) {
+  .sm\:m-4 {
+    margin: 1rem;
+  }
+
   .sm\:h-36 {
     height: 9rem;
   }
@@ -2100,6 +2188,22 @@ p {
     width: 100%;
   }
 
+  .sm\:w-12 {
+    width: 3rem;
+  }
+
+  .sm\:w-40 {
+    width: 10rem;
+  }
+
+  .sm\:w-48 {
+    width: 12rem;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2107,6 +2211,10 @@ p {
 }
 
 @media (min-width: 768px) {
+  .md\:m-4 {
+    margin: 1rem;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2135,8 +2243,36 @@ p {
     width: 75%;
   }
 
+  .md\:w-96 {
+    width: 24rem;
+  }
+
+  .md\:w-80 {
+    width: 20rem;
+  }
+
+  .md\:w-40 {
+    width: 10rem;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:max-w-80 {
+    max-width: 20rem;
+  }
+
   .md\:shrink-0 {
     flex-shrink: 0;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
   }
 
   .md\:space-y-4 > :not([hidden]) ~ :not([hidden]) {
@@ -2160,6 +2296,10 @@ p {
 }
 
 @media (min-width: 1024px) {
+  .lg\:m-4 {
+    margin: 1rem;
+  }
+
   .lg\:h-36 {
     height: 9rem;
   }
@@ -2174,6 +2314,22 @@ p {
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-80 {
+    width: 20rem;
+  }
+
+  .lg\:w-12 {
+    width: 3rem;
+  }
+
+  .lg\:w-full {
+    width: 100%;
+  }
+
+  .lg\:max-w-80 {
+    max-width: 20rem;
   }
 
   .lg\:flex-row {
@@ -2194,6 +2350,22 @@ p {
     margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .lg\:space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+
+  .lg\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .lg\:overflow-hidden {
+    overflow: hidden;
+  }
+
   .lg\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -2201,12 +2373,26 @@ p {
 }
 
 @media (min-width: 1280px) {
+  .xl\:m-4 {
+    margin: 1rem;
+  }
+
   .xl\:w-5\/12 {
     width: 41.666667%;
   }
 
   .xl\:w-6\/12 {
     width: 50%;
+  }
+
+  .xl\:max-w-80 {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:m-4 {
+    margin: 1rem;
   }
 }
 

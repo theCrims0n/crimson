@@ -13,20 +13,16 @@ export const AuthProtected = () => {
     }
 
     return (
-        <motion.div className="flex flex-col" initial={{ opacity: 0 }} animate={{
+        <motion.div className="flex justify-center items-center" initial={{ opacity: 0 }} animate={{
             opacity: 1,
             transition: { delay: 0.5, duration: 0.2, ease: 'easeInOut' }
         }}>
-            <div className="min-h-screen min-w-screen flex flex-col items-center justify-center">
-                <div className="flex h-full flex-wrap items-center justify-center lg:justify-between md:space-y-4">
-                    <div className="flex items-center justify-center shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12 ">
-                        <img className="lg:h-36 lg:w-96 sm:h-36 sm:w-96 fade-in max-w-96 fade-in" src="/crimson.png" />
-                    </div>
-                    <div className="md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 ">
-                        <div className="flex flex-row items-center justify-center lg:justify-start ">
-                            <Outlet />
-                        </div>
-                    </div>
+            <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4 justify-center items-center min-h-screen min-w-screen min-w-80">
+                <div className="flex justify-center items-center m-1 w-full">
+                    <img className="fade-in max-w-80 w-full" src="/crimson.png" />
+                </div>
+                <div className="flex justify-center items-center">
+                    <Outlet />
                 </div>
             </div>
         </motion.div>
