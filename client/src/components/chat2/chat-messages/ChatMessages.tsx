@@ -45,11 +45,11 @@ export const ChatMessage = ({ messages, message }: Props) => {
     return (
         <>
             {chat_id.trim().length > 0 && <><div className={cn(`w-40 flex justify-start animation duration-300 ml-1 mb-1 h-0 `, isTyping && (chat_typing === current_chat_id) && 'absolute h-8 animation duration-300 mb-1')} >
-                <div className={`bg-zinc-800 border border-zinc-600 rounded-md rounded-tl-none px-4 py-2 m-1  line-clamp overflow-hidden`}>
-                    <div className='flex space-x-2 justify-center items-center'>
-                        <div className='h-[5px] w-[5px] bg-zinc-100 rounded-full animate-bounce [animation-delay:-0.3s]' />
-                        <div className='h-[5px] w-[5px] bg-zinc-200 rounded-full animate-bounce [animation-delay:-0.15s]' />
-                        <div className='h-[5px] w-[5px] bg-zinc-300 rounded-full animate-bounce' />
+                <div className={`flex flex-col justify-center items-center bg-zinc-900 border border-zinc-600 rounded-md rounded-tl-none px-4 py-2 m-1  line-clamp overflow-hidden`}>
+                    <div className="preloader pt-1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>

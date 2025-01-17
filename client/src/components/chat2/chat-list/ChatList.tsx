@@ -31,7 +31,11 @@ export const ChatList = ({ chats }: Props) => {
                                         <div className="flex w-full justify-start items-center">
                                             {isTyping && chat?._id == chat_typing ?
                                                 <div className="flex justify-center items-center pl-4">
-                                                    <div className="dot-elastic" />
+                                                    <div className="preloader pt-1">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
                                                 : <p className="flex text-[11px] text-zinc-400 text-start"> {chats_dets.message.slice(0, 25) + (chats_dets.message.length > 30 ? '...' : '')}</p>
                                             }
