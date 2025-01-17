@@ -42,7 +42,7 @@ export const ChatForm = () => {
 
     return (
         <div className="flex flex-col border border-b-0 border-zinc-600 w-full h-full rounded-xs relative overflow-hidden" >
-            <div className="flex flex-row justify-center items-center  min-h-10 bg-black p-2.5 border border-l-0 border-r-0 border-t-0 border-b-zinc-600">
+            <div className="flex flex-row justify-center items-center min-h-12 bg-black p-2.5 border border-l-0 border-r-0 border-t-0 border-b-zinc-600">
                 {users?.filter(f => f._id == user_to_id)[0] &&
                     <>
                         <div className="flex justify-start items-center">
