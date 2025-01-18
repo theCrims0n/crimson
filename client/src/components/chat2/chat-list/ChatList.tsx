@@ -1,6 +1,7 @@
 import { useChatStore2 } from "../../../store/chat-store2";
 import { useAuthStore } from "../../../store/auth-store";
 import { useUIStore } from "../../../store/ui/sidebar-store";
+import { ChatSearch } from "../chat-search/ChatSearch";
 
 interface Props {
     chats: any[]
@@ -13,8 +14,9 @@ export const ChatList = ({ chats }: Props) => {
     const { closeSideContactsMenuWidth } = useUIStore()
 
     return (
-        <div className="fade-in flex flex-col h-full w-full rounded-sx">
+        <div className="flex flex-col h-full w-full rounded-sx">
             <div className="flex flex-col w-full overflow-auto h-full">
+                <ChatSearch type={2} />
                 {chats.length > 0 && <ul className="flex flex-col w-full">
                     {
                         chats.sort((a, b) => a.lastDocument.chats_dets.createdAt > b.lastDocument.chats_dets.createdAt ? -1 : 1).map((chat, index) => {

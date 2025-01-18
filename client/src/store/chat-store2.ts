@@ -15,6 +15,9 @@ interface State {
     isTyping: boolean;
     current_chat_id: string;
     chat_typing: string;
+    newUsers: any[];
+    newLastMessages: any[];
+
     getUsers: () => void;
     reconnect: (user: Users) => void;
     sendMessage: (message: string) => void;
@@ -23,6 +26,7 @@ interface State {
     setLastMessages: () => void
     getMessage: () => void;
     Typing: (typing: boolean) => void;
+    search: (value: string, type: number) => void;
     reset: () => void;
 }
 
@@ -40,6 +44,8 @@ export const useChatStore2 = create<State>()(
         isTyping: false,
         current_chat_id: '',
         chat_typing: '',
+        newUsers: [],
+        newLastMessages: [],
         getUsers() {
             try {
                 set({ isLoading: true })
@@ -97,7 +103,7 @@ export const useChatStore2 = create<State>()(
             })
         },
         getAllMessages(chat_id, socket_to, user_id) {
-            set({ chat_id: '', socket_to: '', user_to_id: '', current_chat_id: '' })
+            set({ chat_id: '', socket_to: '', user_to_id: '', current_chat_id: '', isLoading: true })
             setTimeout(() => {
                 set({ messages: [], message: {}, })
             }, 345);
@@ -108,13 +114,16 @@ export const useChatStore2 = create<State>()(
                 setTimeout(() => {
                     set({ messages: messages, chat_id: chat_id, socket_to: socket_to, current_chat_id: chat_id, user_to_id: user_id })
                 }, 350);
+                setTimeout(() => {
+                    set({ isLoading: false })
+                }, 900);
             }).emit('join-room', chat_id)
         },
         socketTo(socket_to, user_id) {
             try {
-                set({ socket_to: socket_to, chat_id: '', user_to_id: user_id })
+                set({ socket_to: socket_to, chat_id: '', user_to_id: user_id, isLoading: true })
                 setTimeout(() => {
-                    set({ messages: [] })
+                    set({ messages: [], isLoading: false })
                 }, 350);
             } catch (error) {
                 console.log(error)
@@ -139,6 +148,20 @@ export const useChatStore2 = create<State>()(
             setTimeout(() => {
                 set({ messages: [], message: {}, })
             }, 350);
+        },
+        search(value, type) {
+            const { users, lastMessages } = get()
+            if (type === 0) {
+                set({ newUsers: [], newLastMessages: [] })
+                return
+            }
+            if (type === 1) {
+                const newUsers = value.trim().length == 0 ? users : users.filter(f => f.email.toLowerCase().startsWith(value.toLowerCase()))
+                set({ newUsers: newUsers })
+                return
+            }
+            const newLastMessages = value.trim().length == 0 ? lastMessages : lastMessages.filter(f => f.lastDocument.chats_dets.message.toLowerCase().includes(value.toLowerCase()))
+            set({ newLastMessages: newLastMessages })
         },
     })
 )

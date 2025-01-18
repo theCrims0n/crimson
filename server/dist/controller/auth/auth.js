@@ -41,7 +41,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.login = login;
 const logout = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.clearCookie('token').status(200).json({ mssge: 'Sucessfully logged out' });
+        res.clearCookie('token', { sameSite: "none", secure: true, }).status(200).redirect('/auth/login');
     }
     catch (error) {
         res.status(500).json({ mssge: error });
@@ -52,8 +52,7 @@ const verifyToken = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         const { token } = req.cookies;
         if (!token) {
-            res.clearCookie('token');
-            res.status(400).json({ mssge: 'Invalid or expired token' });
+            res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login');
             return;
         }
         try {
@@ -61,8 +60,7 @@ const verifyToken = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             if (_id) {
                 const user = yield users_1.default.findById({ _id });
                 if (!user) {
-                    res.clearCookie('token');
-                    res.status(400).json({ mssge: 'Unauthorized' });
+                    res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login');
                     return;
                 }
                 res.json({ user });
@@ -70,15 +68,14 @@ const verifyToken = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             }
         }
         catch (error) {
-            res.clearCookie('token');
+            res.clearCookie('token', { sameSite: "none", secure: true, });
             res.status(400).send('Invalid token!');
             return;
         }
     }
     catch (error) {
         console.log(error);
-        res.clearCookie('token');
-        res.status(400).json({ mssge: 'Token unauthorized' });
+        res.clearCookie('token', { sameSite: "none", secure: true, }).redirect('/auth/login');
         return;
     }
 });
