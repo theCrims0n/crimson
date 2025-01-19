@@ -76,8 +76,9 @@ export const verifyToken = async (req: Request, res: Response) => {
 
 export const signup = async (req: Request, res: Response) => {
     try {
-        const { name, lastname, email, password } = req.body
-        const userExist = await Users.findOne({ where: { email } })
+        let { name, lastname, email, password } = req.body
+        email = email.trim()
+        const userExist = await Users.findOne({ email })
         if (userExist) {
             res.status(500).json({ mssge: 'Email currently registered, please use another one.' })
             return

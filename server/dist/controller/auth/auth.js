@@ -84,8 +84,9 @@ const verifyToken = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.verifyToken = verifyToken;
 const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, lastname, email, password } = req.body;
-        const userExist = yield users_1.default.findOne({ where: { email } });
+        let { name, lastname, email, password } = req.body;
+        email = email.trim();
+        const userExist = yield users_1.default.findOne({ email });
         if (userExist) {
             res.status(500).json({ mssge: 'Email currently registered, please use another one.' });
             return;
