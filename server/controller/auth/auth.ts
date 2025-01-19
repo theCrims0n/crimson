@@ -5,8 +5,9 @@ import jwt from 'jsonwebtoken'
 
 export const login = async (req: Request, res: Response) => {
     try {
-        const { email, password } = req.body
-
+        let { email, password } = req.body
+        email = email.trim()
+        password = password.trim()
         const user = await Users.findOne({ email, password })
         if (!user) {
             res.status(400).json({ mssge: 'Email or Password incorrect, try again.' })

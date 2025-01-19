@@ -18,7 +18,9 @@ const jwt_1 = require("../../helper/jwt");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.trim();
+        password = password.trim();
         const user = yield users_1.default.findOne({ email, password });
         if (!user) {
             res.status(400).json({ mssge: 'Email or Password incorrect, try again.' });
