@@ -84,7 +84,7 @@ export const ChatForm = () => {
                         {hello2.trim().length > 0 && <p className={cn("text-sm md:text-2xl", fade ? 'fade-out' : 'fade-in')}>{hello2}</p>}
                     </div>
                 </div>
-                <div onClick={() => closeDetail()} className={cn("absolute flex flex-col-reverse overflow-auto w-full bg-transparent h-full top-0 left-0 ease-in-out animation duration-300 shadow-inner translate-y-full", chat_id.trim().length > 0 && 'translate-y-0 backdrop-blur-[2px]')}>
+                <div onClick={() => closeDetail()} className={cn("absolute flex flex-col-reverse overflow-auto w-full bg-transparent h-full top-0 left-0 ease-in-out animation duration-300 shadow-inner translate-y-full", chat_id.trim().length > 0 && 'translate-y-0')}>
                     <ChatMessage messages={messages} message={message} />
                 </div>
                 <div className={cn("absolute flex justify-center items-center top-0 right-0 animation duration-300 ", isInformation ? 'md:w-6/12 w-full ' : 'md:w-3/12 w-6/12')} >
