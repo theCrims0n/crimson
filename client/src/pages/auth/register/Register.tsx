@@ -38,7 +38,7 @@ export const Register = () => {
     }
 
     return (
-        <div className="fade-in flex flex-col items-center justify-center shadow-xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-sm w-screen max-w-2xl min-h-96 min-w-96 border border-zinc-600">
+        <div className="fade-in flex flex-col items-center justify-center shadow-xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-sm w-screen max-w-2xl min-h-96 min-w-96 border border-rose-950">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
             <h1 className="font-bold text-3xl text-zinc-100 title uppercase text-center">Hello!</h1>
                 <div className="flex lg:flex-row flex-col lg:space-x-2 xs:space-y-2 lg:space-between">

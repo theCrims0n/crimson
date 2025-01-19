@@ -25,7 +25,7 @@ class Server {
         this.apiAuth = '/api/auth';
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '3001';
-        this.connection = process.env.MONGO_URL || 'mongodb://localhost:27017/crimson';
+        this.connection = process.env.MONGO_URL_CLOUD || 'mongodb+srv://crimson:xQq8avFit8te3zFE@crimson.56k6s.mongodb.net/crimson';
         this.server = (0, node_http_1.createServer)(this.app);
         this.io = new socket_io_1.Server(this.server, { cors: { origin: 'http://localhost:3000' }, connectionStateRecovery: {} });
         //this.io = new ServerSocket(this.server, { cors: { origin: 'https://crimson-01b3.onrender.com' }, connectionStateRecovery: {} })

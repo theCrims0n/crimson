@@ -24,7 +24,7 @@ export const ChatMessage = ({ messages, message }: Props) => {
         const htmlString =
             `            
               <div class='flex flex-col justify-center content-fit m-1 ${user._id == user_id ? 'items-end' : 'items-start'}'>
-                 <div class='flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 bg-opacity-95 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden ${user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none'} '>
+                 <div class='flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 border border-rose-950 rounded-md py-2 m-1 line-clamp overflow-hidden ${user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none'} '>
                       <p class=" text-white text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">${chat}</p>
                        <div class="flex justify-end items-center">
                           <div class='flex h-[4px] pb-1 pr-1'>
@@ -45,7 +45,7 @@ export const ChatMessage = ({ messages, message }: Props) => {
     return (
         <>
             {chat_id.trim().length > 0 && <><div className={cn(`w-40 flex justify-start animation duration-300 ml-1 mb-1 h-0 `, isTyping && (chat_typing === current_chat_id) && 'absolute h-8 animation duration-300 mb-1')} >
-                <div className={`flex flex-col justify-center items-center bg-zinc-900 border border-zinc-600 rounded-md rounded-tl-none px-4 py-2 m-1  line-clamp overflow-hidden`}>
+                <div className={`flex flex-col justify-center items-center bg-zinc-900 border border-rose-950 rounded-md rounded-tl-none px-4 py-2 m-1  line-clamp overflow-hidden`}>
                     <div className="preloader pt-1">
                         <span></span>
                         <span></span>
@@ -57,9 +57,9 @@ export const ChatMessage = ({ messages, message }: Props) => {
                 {messages?.map((data, index) => {
                     const { message, user_id, date } = data
                     return (
-                        <div key={index} className={cn('flex flex-col justify-center content-fit m-1 ', user._id == user_id ? 'items-end' : 'items-start')}>
-                            <div className={cn('flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 bg-opacity-95 border border-zinc-600 rounded-md py-2 m-1 line-clamp overflow-hidden', user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none')}>
-                                <p className=" text-white text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">{message}</p>
+                        <div key={index} className={cn(' flex flex-col justify-center content-fit m-1 ', user._id == user_id ? 'items-end' : 'items-start')}>
+                            <div className={cn('flex flex-col max-w-[50%] w-auto min-w-40 min-h-[40px] bg-zinc-900 animation duration-300 border hover:shadow hover:shadow-rose-800 border-zinc-800 rounded-md py-2 m-1 line-clamp overflow-hidden', user._id == user_id ? 'rounded-tr-none' : 'rounded-tl-none')}>
+                                <p className="text-white text-[10px] md:text-[12px] w-full font-normal line-clamp break-words pr-2 pl-2">{message}</p>
                                 <div className="flex justify-end items-center">
                                     <div className='flex h-[4px] pb-1 pr-1'>
                                         <p className="text-zinc-300 text-[9px] w-full" >{new Date(date).toLocaleString('en-US', { hour12: true, hour: 'numeric', minute: '2-digit' })}</p>

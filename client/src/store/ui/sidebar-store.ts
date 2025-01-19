@@ -2,31 +2,34 @@ import { create } from 'zustand';
 
 interface State {
     isSideMenuOpen: boolean;
-    isContactsOpen: boolean;
-    isSideMenuOpenWidth: boolean;
-
+    isChatMenu: boolean;
+    isUsersMenu: boolean;
+    isDetail: boolean;
+    isInformation: boolean;
     openSideMenu: () => void;
     closeSideMenu: () => void;
-
-    openContacsSideMenu: () => void;
-    closeSideContactsMenu: () => void;
-
-    openContacsSideMenuWidth: () => void;
-    closeSideContactsMenuWidth: () => void;
+    openUsersSideMenu: () => void;
+    closeUsersContactsMenu: () => void;
+    openChatsSideMenu: () => void;
+    closeChatsContactsMenu: () => void;
+    openDetail: () => void;
+    closeDetail: () => void;
+    openInformation: (open: boolean) => void;
 }
 
 export const useUIStore = create<State>()((set) => ({
     isSideMenuOpen: false,
-    isContactsOpen: false,
-    isSideMenuOpenWidth: false,
-
+    isChatMenu: false,
+    isUsersMenu: false,
+    isDetail: false,
+    isInformation: false,
     openSideMenu: () => set({ isSideMenuOpen: true }),
     closeSideMenu: () => set({ isSideMenuOpen: false }),
-
-    openContacsSideMenu: () => set({ isContactsOpen: true }),
-    closeSideContactsMenu: () => set({ isContactsOpen: false }),
-
-    
-    openContacsSideMenuWidth: () => set({ isSideMenuOpenWidth: true }),
-    closeSideContactsMenuWidth: () => set({ isSideMenuOpenWidth: false }),
+    openUsersSideMenu: () => set({ isUsersMenu: true }),
+    closeUsersContactsMenu: () => set({ isUsersMenu: false }),
+    openChatsSideMenu: () => set({ isChatMenu: true }),
+    closeChatsContactsMenu: () => set({ isChatMenu: false }),
+    openDetail: () => set({ isDetail: true }),
+    closeDetail: () => set({ isDetail: false }),
+    openInformation(open: boolean) { set({ isInformation: open }) },
 }));

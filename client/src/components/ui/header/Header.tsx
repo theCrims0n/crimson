@@ -50,7 +50,7 @@ export const Header = () => {
                             hidden={open}
                             data-popover="profile-menu"
                             data-popover-placement="bottom"
-                            className="absolute m-2 mr-28 z-10 min-w-[180px] overflow-auto rounded-lg border border-zinc-600 bg-zinc-900 p-1.5 shadow-lg shadow-sm focus:outline-none"
+                            className="absolute m-2 mr-28 z-10 min-w-[180px] overflow-auto rounded-lg border border-rose-950 bg-zinc-900 p-1.5 shadow-lg shadow-sm focus:outline-none"
                         >
                             <Link to='/profile' onClick={handleOpen}
                                 role="menuitem"
@@ -92,7 +92,7 @@ export const Header = () => {
                                     Help
                                 </p>
                             </Link>
-                            <hr className="my-2 border-zinc-200" role="menuitem" />
+                            <hr className="my-2 border-rose-950" role="menuitem" />
                             <button
                                 onClick={() => [logout(), handleOpen()]}
                                 role="menuitem"
