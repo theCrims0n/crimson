@@ -6,12 +6,12 @@ export const Doodle = () => {
       <div className="relative flex flex-row w-full h-full">
         <div className="absolute flex h-full w-full">
           <div className="flex w-full h-full justify-start items-center">
-            <div className="flex bg-black bg-black border border-rose-950 border-t-0 h-full w-[50px] ml-4" />
-            <div className="flex bg-black bg-black border border-rose-950 border-t-0 h-full w-[50px] ml-4" />
+            <div className="flex bg-black bg-black border border-rose-950 border-t-0 border-b-0 h-full w-[50px] ml-4" />
+            <div className="flex bg-black bg-black border border-rose-950 border-t-0 border-b-0 h-full w-[50px] ml-4" />
           </div>
           <div className="flex w-full h-full justify-end items-center pr-4">
-            <div className="flex bg-black bg-black border border-rose-950 border-t-0 h-full w-[50px] ml-4" />
-            <div className="flex bg-black bg-black border border-rose-950 border-t-0 h-full w-[50px] ml-4" />
+            <div className="flex bg-black bg-black border border-rose-950 border-t-0 border-b-0 h-full w-[50px] ml-4" />
+            <div className="flex bg-black bg-black border border-rose-950 border-t-0 border-b-0 h-full w-[50px] ml-4" />
           </div>
         </div>
 

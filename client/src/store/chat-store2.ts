@@ -144,6 +144,8 @@ export const useChatStore2 = create<State>()(
             }
         },
         reset() {
+            const { chat_id } = get()
+            socket.emit('leave-room', chat_id)
             set({ isTyping: false, chat_id: '', socket_to: '', current_chat_id: '', isLoading: false, user_id: '', user_to_id: '' })
             setTimeout(() => {
                 set({ messages: [], message: {}, })

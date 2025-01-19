@@ -43,6 +43,10 @@ export const Sockets2 = (socket: Socket, io: any) => {
         socket.join(room)
     })
 
+    socket.on('leave-room', (room) => {
+        socket.leave(room)
+    })
+
     socket.on('getAllMessages', async ({ chat_id }) => {
         const messages = await chat.getAllMessages(chat_id)
         io.to(socket.id).emit('getAllMessages', messages)

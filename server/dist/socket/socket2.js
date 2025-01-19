@@ -37,6 +37,9 @@ const Sockets2 = (socket, io) => {
     socket.on('join-room', (room) => {
         socket.join(room);
     });
+    socket.on('leave-room', (room) => {
+        socket.leave(room);
+    });
     socket.on('getAllMessages', (_a) => __awaiter(void 0, [_a], void 0, function* ({ chat_id }) {
         const messages = yield chat.getAllMessages(chat_id);
         io.to(socket.id).emit('getAllMessages', messages);

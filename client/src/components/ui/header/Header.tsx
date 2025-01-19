@@ -29,7 +29,7 @@ export const Header = () => {
     }, [ref]);
 
     return (
-        <nav className="bg-zinc-900 rounded-md h-14 w-screen flex items-center justify-between">
+        <nav className="bg-[#0e0e0e]  h-14 w-screen flex items-center justify-between">
             <div className="flex justify-start items-center pl-6">
                 <button onClick={openSideMenu}>
                     <Menu color="white" />
@@ -50,11 +50,11 @@ export const Header = () => {
                             hidden={open}
                             data-popover="profile-menu"
                             data-popover-placement="bottom"
-                            className="absolute m-2 mr-28 z-10 min-w-[180px] overflow-auto rounded-lg border border-rose-950 bg-zinc-900 p-1.5 shadow-lg shadow-sm focus:outline-none"
+                            className="absolute m-2 mr-28 z-10 min-w-[180px] overflow-auto border border-rose-950 border-t-0 bg-[#0e0e0e] p-1.5 shadow-lg shadow-sm focus:outline-none"
                         >
                             <Link to='/profile' onClick={handleOpen}
                                 role="menuitem"
-                                className="cursor-pointer  flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
+                                className="cursor-pointer  flex w-full text-sm items-center  p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
                             >
                                 <User color="white" size={20} />
                                 <p className="text-xs ml-2">
@@ -64,7 +64,7 @@ export const Header = () => {
                             <Link
                                 to='/profile/edit' onClick={handleOpen}
                                 role="menuitem"
-                                className="cursor-pointer  flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
+                                className="cursor-pointer  flex w-full text-sm items-center  p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
                             >
                                 <UserRoundPen color="white" size={20} />
                                 <p className=" text-xs ml-2">
@@ -75,7 +75,7 @@ export const Header = () => {
                                 onClick={handleOpen}
                                 to='/chat'
                                 role="menuitem"
-                                className="cursor-pointer  flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
+                                className="cursor-pointer  flex w-full text-sm items-center  p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
                             >
                                 <InboxIcon color="white" size={20} />
                                 <p className=" text-xs ml-2">
@@ -85,7 +85,7 @@ export const Header = () => {
                             <Link
                                 to='/'
                                 role="menuitem"
-                                className="cursor-pointer  flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
+                                className="cursor-pointer  flex w-full text-sm items-center  p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
                             >
                                 <CircleHelp color="white" size={20} />
                                 <p className=" text-xs ml-2">
@@ -96,7 +96,7 @@ export const Header = () => {
                             <button
                                 onClick={() => [logout(), handleOpen()]}
                                 role="menuitem"
-                                className="cursor-pointer  flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
+                                className="cursor-pointer  flex w-full text-sm items-center  p-3 transition-all hover:bg-zinc-800 focus:bg-zinc-100 active:bg-zinc-100"
                             >
                                 <LogOut color="white" size={20} />
                                 <p className=" text-xs ml-2">

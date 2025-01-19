@@ -28,8 +28,9 @@ export const ChatForm = () => {
     }
 
     useEffect(() => {
+        if (chat_id.trim().length === 0) { return }
         getMessage()
-    }, [])
+    }, [chat_id])
 
     useEffect(() => {
         if (text.trim().length == 0) {
@@ -74,7 +75,7 @@ export const ChatForm = () => {
                         </div>
                     </>}
             </div>
-            <div className={`relative flex justify-center items-center h-full w-full relative bg-zinc-950`} >
+            <div className={`relative flex justify-center items-center h-full w-full relative bg-[#060606]`} >
                 <Doodle />
                 <div className="flex flex-row absolute justify-center items-center ease-in-out animation duration-300 space-x-2"  >
                     <div className="w-[70px]">
@@ -95,9 +96,9 @@ export const ChatForm = () => {
                     </div>
                 </div>
             </div>
-            <div className={cn("flex flex-row relative h-14 w-full ", (user_to_id?.trim().length === 0 || chat_id?.trim().length === 0) && 'border border-t-rose-950 border-l-0 border-r-0 border-b bg-black')}>
+            <div className={cn("flex flex-row relative h-14 w-full bg-black", (user_to_id?.trim().length === 0 || chat_id?.trim().length === 0) && 'border border-t-rose-950 border-l-0 border-r-0 border-b bg-black')}>
                 <form onSubmit={handleSubmit(onSubmit)} className={cn("flex flex-col justify-center w-full top-0 left-0 ease-in-out animation duration-300 translate-y-full ", (user_to_id?.trim().length > 0 || chat_id?.trim().length > 0) && 'translate-y-0')}>
-                    <InputChat onKeyDown={handleUserKeyPress} {...register('message', { required: true, onChange: (e) => [setText(e.target.value)] })} className="pe-12 h-full border border-l-0 border-r-0 focus:border " />
+                    <InputChat onKeyDown={handleUserKeyPress} {...register('message', { required: true, onChange: (e) => [setText(e.target.value)] })} className="pe-12 h-full" />
                     <button type="submit"
                         className="hover:border-l-lime-600 hover:border-2 rounded-none w-[58px] border-l-rose-950 absolute  
                         inset-y-0 end-0 flex h-full w-9 items-center justify-center border border-transparent text-muted-foreground/80 outline-offset-2 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
