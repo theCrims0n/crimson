@@ -30,6 +30,7 @@ export const ChatForm = () => {
     useEffect(() => {
         if (chat_id.trim().length === 0) { return }
         getMessage()
+        setText('')
     }, [chat_id])
 
     useEffect(() => {
@@ -96,9 +97,9 @@ export const ChatForm = () => {
                     </div>
                 </div>
             </div>
-            <div className={cn("flex flex-row relative h-14 w-full bg-black", (user_to_id?.trim().length === 0 || chat_id?.trim().length === 0) && 'border border-t-rose-950 border-l-0 border-r-0 border-b bg-black')}>
+            <div className="flex flex-row relative h-14 w-full bg-black border border-rose-950 border-r-0 border-l-0">
                 <form onSubmit={handleSubmit(onSubmit)} className={cn("flex flex-col justify-center w-full top-0 left-0 ease-in-out animation duration-300 translate-y-full ", (user_to_id?.trim().length > 0 || chat_id?.trim().length > 0) && 'translate-y-0')}>
-                    <InputChat onKeyDown={handleUserKeyPress} {...register('message', { required: true, onChange: (e) => [setText(e.target.value)] })} className="pe-12 h-full" />
+                    <InputChat value={text} onKeyDown={handleUserKeyPress} {...register('message', { required: true, onChange: (e) => [setText(e.target.value)] })} className="pe-12 h-full" />
                     <button type="submit"
                         className="hover:border-l-lime-600 hover:border-2 rounded-none w-[58px] border-l-rose-950 absolute  
                         inset-y-0 end-0 flex h-full w-9 items-center justify-center border border-transparent text-muted-foreground/80 outline-offset-2 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"

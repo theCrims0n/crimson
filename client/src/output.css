@@ -1207,6 +1207,11 @@ video {
   border-top-color: rgb(76 5 25 / var(--tw-border-opacity, 1));
 }
 
+.border-b-zinc-950 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(9 9 11 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#060606\] {
   --tw-bg-opacity: 1;
   background-color: rgb(6 6 6 / var(--tw-bg-opacity, 1));
@@ -1284,6 +1289,11 @@ video {
 .bg-\[\#0e0e0e\] {
   --tw-bg-opacity: 1;
   background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+}
+
+.bg-rose-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(76 5 25 / var(--tw-bg-opacity, 1));
 }
 
 .p-0 {
