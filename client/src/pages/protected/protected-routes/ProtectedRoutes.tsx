@@ -3,7 +3,6 @@ import { Footer } from "../../../components/ui/footer/Footer"
 import { Header } from "../../../components/ui/header/Header"
 import { useAuthStore } from "../../../store/auth-store"
 import { Navigate, Outlet, useNavigate } from "react-router-dom"
-import Cookies from 'js-cookie'
 import { useUIStore } from "../../../store/ui/sidebar-store"
 import { Sidebar } from "../../../components/ui/sidebar/SideBar"
 import { LoaderCircle } from "lucide-react"
@@ -32,7 +31,7 @@ export const ProtectedRoutes = () => {
             <Sidebar />
             <main className="mb-auto flex-grow" onClick={closeSideMenu}>
                 {isLoading ?
-                    <div className="w-full h-full flex justify-center place-items-center">
+                    <div className="w-full h-full flex justify-center place-items-center overflow-hidden">
                         <LoaderCircle
                             className="-ms-1 me-2 animate-spin"
                             size={40}
