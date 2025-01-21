@@ -9,7 +9,7 @@ const InputChat = React.forwardRef<HTMLTextAreaElement, InputProps>(
             <textarea
             placeholder="Type here..."
                 className={cn(
-                    "[resize:none] placeholder-gray-300 placeholder-opacity-75 autofill:shadow-[inset_0_0_0px_1000px_rgb(0,0,0)] autofill-text bg-black flex h-9 w-full font-normal rounded-none border-2 border-rose-950 bg-black px-3 py-2 text-xs text-zinc-100 shadow-sm shadow-black/5 ring-offset-background transition-shadow focus:outline-none focus:ring-0 focus:border-lime-500 disabled:cursor-not-allowed disabled:opacity-50",
+                    "[resize:none] placeholder-gray-300 placeholder-opacity-75 autofill:shadow-[inset_0_0_0px_1000px_rgb(0,0,0)] autofill-text bg-black flex h-9 w-full font-normal rounded-none border-2 border-rose-950 bg-black px-3 py-2 text-sm/[14px] text-zinc-100 shadow-sm shadow-black/5 ring-offset-background transition-shadow focus:outline-none focus:ring-0 focus:border-lime-500 disabled:cursor-not-allowed disabled:opacity-50",
                     type === "search" &&
                     "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",
                     type === "file" &&

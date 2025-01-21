@@ -51,6 +51,7 @@ const Sockets2 = (socket, io) => {
     socket.on('disconnect', () => {
         const users = chat.deleteUser(socket.id);
         io.emit('register', users);
+        console.log('an user has disconnect');
         console.log(users);
     });
 };

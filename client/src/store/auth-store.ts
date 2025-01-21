@@ -47,6 +47,7 @@ export const useAuthStore = create<AuthStore>()(
                 const result = await axios.get('/api/auth/logout')
                 if (result.status != 200) {
                     set({ isLoading: false, isAuthentic: false, user: [], token: '' })
+                    socket.disconnect()
                     return
                 }
                 set({ isLoading: false, isAuthentic: false, user: [], token: '' })
@@ -54,6 +55,7 @@ export const useAuthStore = create<AuthStore>()(
                 return result
             } catch (error) {
                 console.log(error)
+                socket.disconnect()
                 set({ isLoading: false, isAuthentic: false, user: [], token: '' })
             }
         },

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { Footer } from "../../../components/ui/footer/Footer"
 import { Header } from "../../../components/ui/header/Header"
 import { useAuthStore } from "../../../store/auth-store"
@@ -27,22 +27,21 @@ export const ProtectedRoutes = () => {
 
     return (
         <div className="flex flex-col h-screen justify-between" >
-            <Header />
-            <Sidebar />
-            <main className="mb-auto flex-grow" onClick={closeSideMenu}>
-                {isLoading ?
-                    <div className="w-full h-full flex justify-center place-items-center overflow-hidden">
-                        <LoaderCircle
-                            className="-ms-1 me-2 animate-spin"
-                            size={40}
-                            strokeWidth={2}
-                            aria-hidden="true"
-                            color="white"
-                        />
-                    </div>
-                    : <Outlet />}
-            </main>
-            <Footer />
+            <Suspense fallback={isLoading && <div className="w-full h-full flex justify-center place-items-center overflow-hidden">
+                <LoaderCircle
+                    className="-ms-1 me-2 animate-spin"
+                    size={40}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                    color="white" />
+            </div>}>
+                <Header />
+                <Sidebar />
+                <main className="mb-auto flex-grow" onClick={closeSideMenu}>
+                    <Outlet />
+                </main>
+                <Footer />
+            </Suspense>
         </div>
     )
 }

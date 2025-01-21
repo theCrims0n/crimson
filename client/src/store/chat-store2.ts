@@ -50,8 +50,8 @@ export const useChatStore2 = create<State>()(
             try {
                 set({ isLoading: true })
                 socket.on('register', function (users: any) {
-                    socket.emit('setLastMessages').on('setLastMessages', function (lastMessage: any) {
-                        const contacts = users?.map((f: any) => {
+                    socket.emit('setLastMessages').on('setLastMessages', async function (lastMessage: any) {
+                        const contacts = await users?.map((f: any) => {
                             return {
                                 email: f.email,
                                 lastname: f.lastname,

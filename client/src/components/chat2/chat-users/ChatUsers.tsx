@@ -13,7 +13,6 @@ export const ChatUsers = ({ users }: Props) => {
     const { user }: any = useAuthStore()
     const { closeUsersContactsMenu } = useUIStore()
     const { socketTo, getAllMessages, current_chat_id, isLoading } = useChatStore2()
-
     return (
         <div className="flex flex-col h-full w-full rounded-sx ">
             <div className="flex flex-col w-full overflow-auto h-full ">
